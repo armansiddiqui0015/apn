@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-['helvetica_now_display'] dark:bg-gray-900 dark:text-gray-100">
+    <nav class="w-full flex justify-between items-center px-5 py-3 bg-gray-800 dark:bg-gray-900">
+        <h3 class="text-xl text-white">Scatch</h3>
+
+        <!-- Hamburger Icon for Small Screens -->
+        <div class="block md:hidden">
+            <button id="menu-btn" class="text-white focus:outline-none">
+                <i class="ri-menu-line text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <div id="menu" class="hidden md:flex flex-col md:flex-row gap-5">
+            <% if (typeof logedIn !== 'undefined' ? logedIn : true) { %>
+                <a href="/shop" class="text-gray-300 hover:text-white">Shop</a>
+                <a href="/cart" class="text-gray-300 hover:text-white">Cart</a>
+                <a href="/adminn" class="text-gray-300 hover:text-white">My Account</a>
+                <a href="/owners/admin" class="text-gray-300 hover:text-white">Create Product</a>
+                <a href="/user/logout" class="text-red-600">Logout</a>
+            <% } else { %>
+                <a href="/" class="text-gray-300 hover:text-white">Login</a>
+                <a href="/" class="text-gray-300 hover:text-white">Register</a>
+            <% } %>
+        </div>
+    </nav>
+
+    <script>
+        // Toggle the menu on small screens
+        document.getElementById('menu-btn').addEventListener('click', function () {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+    

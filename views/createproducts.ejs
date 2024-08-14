@@ -1,0 +1,59 @@
+<%- include('./partials/header') %>
+
+<% if(success.length > 0) { %>
+    <div class="fixed top-5 left-1/2 transform -translate-x-1/2 p-3 rounded-md bg-red-500 dark:bg-blue-700">
+        <span class="text-white">
+            <%= success %>
+        </span>
+    </div>
+<% } %>
+
+<div class="min-h-screen flex flex-col dark:bg-gray-900">
+    <div class="container px-4 md:px-10 py-20 flex flex-grow flex-col md:flex-row">
+        <!-- Sidebar -->
+        <div class="w-full md:w-1/4 flex flex-col items-start mb-6 md:mb-0">
+            <div class="flex flex-col">
+                <a class="block w-fit mb-2 text-black dark:text-white" href="">All Products</a>
+                <a class="block w-fit mb-2 text-black dark:text-white" href="">Create new product</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="w-full md:w-3/4 bg-white dark:bg-gray-800 p-8 shadow ml-0 md:ml-4">
+            <h2 class="text-xl font-bold mb-4 text-black dark:text-white">Create New Product</h2>
+            <form autocomplete="off" action="/product/create" method="post" enctype="multipart/form-data">
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold mb-2 text-black dark:text-white">Product Details</h3>
+                    <div class="mb-4">
+                        <label class="block mb-2 font-medium text-black dark:text-white">Product Image</label>
+                        <input name="image" type="file" class="py-2 px-4 rounded bg-zinc-100 dark:bg-gray-700 text-black dark:text-white">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input name="name" type="text" placeholder="Product Name"
+                            class="border p-2 rounded w-full bg-zinc-100 dark:bg-gray-700 text-black dark:text-white border-zinc-200 dark:border-gray-700">
+                        <input name="price" type="text" placeholder="Product Price"
+                            class="border p-2 rounded w-full bg-zinc-100 dark:bg-gray-700 text-black dark:text-white border-zinc-200 dark:border-gray-700">
+                        <input name="discount" type="text" placeholder="Discount Price"
+                            class="border p-2 rounded w-full bg-zinc-100 dark:bg-gray-700 text-black dark:text-white border-zinc-200 dark:border-gray-700">
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-black dark:text-white">Panel Details</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input name="bgcolor" type="text" placeholder="Background Color"
+                            class="border p-2 rounded w-full bg-zinc-100 dark:bg-gray-700 text-black dark:text-white border-zinc-200 dark:border-gray-700">
+                        <input name="panelcolor" type="text" placeholder="Panel Color"
+                            class="border p-2 rounded w-full bg-zinc-100 dark:bg-gray-700 text-black dark:text-white border-zinc-200 dark:border-gray-700">
+                        <input name="textcolor" type="text" placeholder="Text Color"
+                            class="border p-2 rounded w-full bg-zinc-100 dark:bg-gray-700 text-black dark:text-white border-zinc-200 dark:border-gray-700">
+                    </div>
+                </div>
+                <input class="px-5 py-2 rounded mt-3 bg-blue-500 dark:bg-blue-700 text-white w-full md:w-auto" type="submit"
+                    value="Create New Product">
+            </form>
+        </main>
+    </div>
+</div>
+
+<%- include('./partials/footer') %>
